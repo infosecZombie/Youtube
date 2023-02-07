@@ -1,0 +1,14 @@
+CMD (run cmd as Admin)
+for /f "skip=9 tokens=1-4* delims= " %a in ('netsh wlan show profiles') do @netsh wlan show profile name="%e" key=clear | findstr /c:"SSID name" /c:"Key Content" && echo.
+
+
+Run file as admin:
+
+--------
+Wifi.bat
+--------
+@echo off
+cd /d "%~dp0"
+for /f "skip=9 tokens=1-4* delims= " %%a in ('netsh wlan show profiles') do @netsh wlan show profile name="%%e" key=clear | findstr /c:"SSID name" /c:"Key Content" >> wifi.txt && echo. >> wifi.txt
+
+
